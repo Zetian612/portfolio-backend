@@ -43,7 +43,8 @@ class ProjectController extends Controller
             'status' => 'required',
             'url' => 'required',
             'category' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            //'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required',
         ]);
 
         $project = new Project();
@@ -53,17 +54,17 @@ class ProjectController extends Controller
         $project->url = $request->url;
         $project->github_url = $request->github_url;
         $project->category = $request->category;
-
-        if ($request->hasFile('image')) {
+         $project->image_url =  $request->image;
+       /* if ($request->hasFile('image')) {
             $image = $request->file('image');
             $image_name = Str::slug($request->name) . '.' . $image->guessExtension();
             $rute = public_path('/images/projects/');
             $image->move($rute, $image_name);
             $project->image_url = $image_name;
-        }
+        } */
 
         if($project->save()){
-            return redirect()->route('projects.index')->with('message', 'Product updated successfully')->with('typealert', 'success');
+            return redirect()->route('projects.index')->with('message', 'Project created successfully')->with('typealert', 'success');
         } else {
             return redirect()->back()->with('message', 'Something went wrong')->with('typealert', 'danger');
             
@@ -85,7 +86,8 @@ class ProjectController extends Controller
             'status' => 'required',
             'url' => 'required',
             'category' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            //'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required',
         ]);
 
         $project = Project::findOrFail($id);
@@ -95,16 +97,18 @@ class ProjectController extends Controller
         $project->url = $request->url;
         $project->github_url = $request->github_url;
         $project->category = $request->category;
+        $project->image_url =  $request->image;
 
-        if ($request->hasFile('image')) {
+       /* if ($request->hasFile('image')) {
             $image = $request->file('image');
             $image_name = Str::slug($request->name) . '.' . $image->guessExtension();
             $rute = public_path('/images/projects/');
             $image->move($rute, $image_name);
             $project->image_url = $image_name;
-        }
+        } */
+
         if($project->update()){
-            return redirect()->route('projects.index')->with('message', 'Product updated successfully')->with('typealert', 'success');
+            return redirect()->route('projects.index')->with('message', 'Project updated successfully')->with('typealert', 'success');
         } else {
             return redirect()->back()->with('message', 'Something went wrong')->with('typealert', 'danger');
             
@@ -114,16 +118,18 @@ class ProjectController extends Controller
     public function destroy($project)
     {
         $project = Project::findOrFail($project);
-        $img = $project->image_url;
-        $rute = public_path('/images/projects/');   
-        if (file_exists($rute . $img)) {
-            unlink($rute . $img);
-            $project->delete();
-            return redirect()->route('projects.index')->with('message', 'Project deleted successfully')->with('typealert', 'warning');
-        } else {
-            $project->delete();
-            return redirect()->back()->with('message', 'Successfully deleted.')->with('typealert', 'warning');
-        }
+        // $img = $project->image_url;
+        // $rute = public_path('/images/projects/');   
+        $project->delete();
+        return redirect()->back()->with('message', 'Successfully deleted.')->with('typealert', 'warning');
+        // if (file_exists($rute . $img)) {
+        //     unlink($rute . $img);
+        //     $project->delete();
+        //     return redirect()->route('projects.index')->with('message', 'Project deleted successfully')->with('typealert', 'warning');
+        // } else {
+        //     $project->delete();
+        //     return redirect()->back()->with('message', 'Successfully deleted.')->with('typealert', 'warning');
+        // }
         
         
     }

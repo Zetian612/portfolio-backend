@@ -61,7 +61,8 @@
                             <div class="col-md-6">
                                 <div class="form-group mb-3">
                                     <label for="image">Image</label>
-                                    <input type="file" class="form-control" id="image" name="image">
+                                    {{-- <input type="file" class="form-control" id="image" name="image"> --}}
+                                    <input type="text" class="form-control" name="image" placeholder="Url" required>
                                 </div>
                             </div>
                             <div class="col-6">
@@ -74,7 +75,7 @@
                             </div>
                             <div class="col-6">
                                 <div class="form-group mb-3">
-                                    <img src="{{ asset('images/projects/'.$project->image_url) }}" width="200">
+                                    <img src="{{ $project->image_url }}" width="200">
                                 </div>
                             </div>
                             <div class="col-12">
