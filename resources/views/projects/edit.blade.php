@@ -62,7 +62,7 @@
                                 <div class="form-group mb-3">
                                     <label for="image">Image</label>
                                     {{-- <input type="file" class="form-control" id="image" name="image"> --}}
-                                    <input type="text" class="form-control" name="image" placeholder="Url" required>
+                                    <input type="text" class="form-control" name="image" placeholder="Url" value="{{ $project->image_url }}" required>
                                 </div>
                             </div>
                             <div class="col-6">
