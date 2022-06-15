@@ -38,6 +38,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('skills.index') }}">Skills</a>
+                        </li>   
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('petitions.index') }}">Petitions</a>
                         </li>
                     </ul>
 
@@ -92,5 +95,6 @@
             @yield('content')
         </main>
     </div>
+@yield('js')
 </body>
 </html>

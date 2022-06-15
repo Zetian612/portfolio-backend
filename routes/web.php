@@ -38,4 +38,7 @@ Route::prefix('/admin')->group(function () {
     Route::get('/skills/{skill}/edit', [App\Http\Controllers\SkillController::class, 'edit'])->name('skills.edit');
     Route::post('/skills/{skill}/update', [App\Http\Controllers\SkillController::class, 'update'])->name('skills.update');
     Route::get('/skills/{skill}/delete', [App\Http\Controllers\SkillController::class, 'destroy'])->name('skills.delete');
+
+    Route::get('/petitions', [App\Http\Controllers\PetitionController::class, 'index'])->name('petitions.index');
+    Route::get('/petitions/delete/{petition}', [App\Http\Controllers\PetitionController::class, 'delete'])->name('petitions.delete');
 });
