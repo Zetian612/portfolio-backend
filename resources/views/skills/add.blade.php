@@ -21,14 +21,14 @@
                                     <div class="col-md-6">
                                         <div class="form-group mb-3">
                                             <label for="name">Name</label>
-                                            <input type="text" class="form-control" id="name" name="name"
+                                            <input type="text" value="{{ old('name') }}"class="form-control" id="name" name="name"
                                                 placeholder="Name"  required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group mb-3">
                                             <label for="icon">Icon</label>
-                                            <input type="text" class="form-control" id="icon" name="icon"
+                                            <input type="text" value="{{ old('icon') }}" class="form-control" id="icon" name="icon"
                                              required>
                                         </div>
                                     </div>
@@ -43,7 +43,7 @@
                                     </div>
                                    
                                         <div class="form-group mb-3">
-                                            <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
+                                            <button type="submit" class="btn btn-success">{{ __('Save') }}</button>
                                             &nbsp;
                                             <a href="{{ route('skills.index') }}">
                                                 <button type="button" class="btn btn-link">{{ __('Back') }}</button>

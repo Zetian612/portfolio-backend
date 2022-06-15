@@ -15,8 +15,8 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-12">
-                            <table class="table table-responsive">
+                        <div class="col-md-12 table-responsive">
+                            <table class="table table-striped table-hover">
                                 <thead>
                                     <tr>
                                         <th>Name</th>
@@ -32,8 +32,8 @@
                                             <td>{{ $skill->icon }}</td>
                                             <td>{{ $skill->status }}</td>
                                             <td>
-                                                <a href="{{ route('skills.edit', ['skill' => $skill->id]) }}" class="btn btn-primary">Edit</a>
-                                                <a href="{{ route('skills.delete', ['skill' => $skill->id]) }}" class="btn btn-danger">Delete</a>
+                                                <a href="{{ route('skills.edit', ['skill' => $skill->id]) }}" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
+                                                <a href="{{ route('skills.delete', ['skill' => $skill->id]) }}" class="btn btn-danger"><i class="bi bi-trash"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach

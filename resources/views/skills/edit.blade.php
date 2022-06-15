@@ -37,9 +37,9 @@
                                     </div>
  
                             <div class="col-12">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-success">Submit</button>
                                 &nbsp;
-                                <a href="{{ route('projects.index') }}">
+                                <a href="{{ route('skills.index') }}">
                                     <button type="button" class="btn btn-link">Back</button>
                                 </a>
                             </div>

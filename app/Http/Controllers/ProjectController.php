@@ -39,7 +39,7 @@ class ProjectController extends Controller
     {
         $request->validate([
             'name' => 'required|max:50',
-            'description' => 'required|max:255',
+            // 'description' => 'required|max:255',
             'status' => 'required',
             'url' => 'required',
             'category' => 'required',
@@ -82,7 +82,6 @@ class ProjectController extends Controller
     {
         $request->validate([
             'name' => 'required|max:50',
-            'description' => 'required|max:255',
             'status' => 'required',
             'url' => 'required',
             'category' => 'required',

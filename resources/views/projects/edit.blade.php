@@ -68,9 +68,7 @@
                             <div class="col-6">
                                 <div class="form-group mb-3">
                                     <label for="description">Description</label>
-                                    <textarea class="form-control" id="description" name="description" rows="3">
-                                        {{ $project->description }}
-                                    </textarea>
+                                    <textarea class="form-control" id="description" name="description" rows="3">{{ $project->description }}</textarea>
                                 </div>
                             </div>
                             <div class="col-6">
@@ -79,7 +77,7 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-success">Submit</button>
                                 &nbsp;
                                 <a href="{{ route('projects.index') }}">
                                     <button type="button" class="btn btn-link">Back</button>
